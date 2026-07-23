@@ -321,7 +321,9 @@ body {
 .phone-chat-body {
   flex: 1;
   padding: 14px;
-  background: #000000;
+  background-color: #0A0A0E;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px);
+  background-size: 14px 14px;
   display: flex;
   flex-direction: column;
   gap: 10px;

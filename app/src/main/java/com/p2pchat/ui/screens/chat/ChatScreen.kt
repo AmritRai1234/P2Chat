@@ -69,6 +69,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.p2pchat.domain.model.ConnectionStatus
+import com.p2pchat.ui.components.DoodleChatBackground
 import com.p2pchat.ui.components.MessageBubble
 import com.p2pchat.ui.theme.Connected
 import com.p2pchat.ui.theme.Connecting
@@ -198,14 +199,19 @@ fun ChatScreen(
                 .padding(paddingValues)
                 .imePadding()
         ) {
-            // Messages list
-            LazyColumn(
+            // Messages list with WhatsApp-style doodle background pattern
+            Box(
                 modifier = Modifier
                     .weight(1f)
-                    .fillMaxWidth(),
-                state = listState,
-                verticalArrangement = Arrangement.spacedBy(2.dp)
+                    .fillMaxWidth()
             ) {
+                DoodleChatBackground()
+
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize(),
+                    state = listState,
+                    verticalArrangement = Arrangement.spacedBy(2.dp)
+                ) {
                 // Empty state
                 if (uiState.messages.isEmpty()) {
                     item {
@@ -252,6 +258,7 @@ fun ChatScreen(
                 item {
                     Spacer(modifier = Modifier.height(8.dp))
                 }
+            }
             }
 
             // Message input bar
