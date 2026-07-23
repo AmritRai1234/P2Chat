@@ -33,12 +33,12 @@
 </p>
 
 <p align="center">
-  <a href="#-key-features">Key Features</a> •
-  <a href="#%EF%B8%8F-architecture--tech-stack">Architecture</a> •
-  <a href="#%EF%B8%8F-security-architecture--threat-model">Security</a> •
-  <a href="#-mesh-networking-protocol">Mesh Protocol</a> •
-  <a href="#-building--running">Getting Started</a> •
-  <a href="#-license">License</a>
+  <a href="#key-features">Key Features</a> •
+  <a href="#architecture--tech-stack">Architecture</a> •
+  <a href="#security-architecture--threat-model">Security</a> •
+  <a href="#mesh-networking-protocol">Mesh Protocol</a> •
+  <a href="#building--running">Getting Started</a> •
+  <a href="#license">License</a>
 </p>
 
 ---
@@ -48,56 +48,56 @@
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
-- [🌟 Overview](#-overview)
-- [🔥 Key Features](#-key-features)
-- [🛠️ Architecture & Tech Stack](#%EF%B8%8F-architecture--tech-stack)
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [Architecture & Tech Stack](#architecture--tech-stack)
   - [High-Level Data Flow](#high-level-data-flow)
   - [Technology Stack Matrix](#technology-stack-matrix)
-- [🛡️ Security Architecture & Threat Model](#%EF%B8%8F-security-architecture--threat-model)
+- [Security Architecture & Threat Model](#security-architecture--threat-model)
   - [Cryptographic Primitives](#cryptographic-primitives)
   - [Threat Vector Mitigation Matrix](#threat-vector-mitigation-matrix)
-- [📡 Mesh Networking Protocol](#-mesh-networking-protocol)
+- [Mesh Networking Protocol](#mesh-networking-protocol)
   - [Multi-Hop Packet Routing](#multi-hop-packet-routing)
-- [⚡ Footprint & Size Optimization](#-footprint--size-optimization)
-- [📁 Codebase Directory Structure](#-codebase-directory-structure)
-- [🚀 Building & Running](#-building--running)
+- [Footprint & Size Optimization](#footprint--size-optimization)
+- [Codebase Directory Structure](#codebase-directory-structure)
+- [Building & Running](#building--running)
   - [Prerequisites](#prerequisites)
   - [Build Commands](#build-commands)
   - [Device Installation](#device-installation)
-- [🌐 Web Companion & Demo](#-web-companion--demo)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
+- [Web Companion & Demo](#web-companion--demo)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
-## 🌟 Overview
+## Overview
 
 **P2Chat** is a 100% serverless, zero-internet peer-to-peer mesh messaging application engineered natively for Android. It bridges nearby smartphones into a decentralized multi-hop ad-hoc network utilizing **Bluetooth Low Energy (BLE), Bluetooth Classic, and Wi-Fi Direct** via Google Nearby Connections (`P2P_CLUSTER` strategy).
 
 Whether in underground subways, disaster recovery zones, wilderness trails, or crowded event stadiums, P2Chat ensures instantaneous, encrypted, and resilient peer-to-peer communication without relying on ISP infrastructure or cellular towers.
 
-🌐 **Live Website & Interactive Demo**: [https://AmritRai1234.github.io/P2Chat/](https://AmritRai1234.github.io/P2Chat/)
+**Live Website & Interactive Demo**: [https://AmritRai1234.github.io/P2Chat/](https://AmritRai1234.github.io/P2Chat/)
 
 ---
 
-## 🔥 Key Features
+## Key Features
 
 | Feature | Description |
 | :--- | :--- |
-| 📡 **Zero-Internet P2P Mesh Network** | Multi-hop peer relay powered by Google Nearby Connections (`P2P_CLUSTER`). Messages dynamically hop across nearby devices to reach out-of-range recipients. |
-| 🔒 **AES-256-GCM End-to-End Encryption** | Zero-trust payload security with 128-bit authentication tags and unique 12-byte IVs per packet. Group keys derived via `PBKDF2WithHmacSHA256`. |
-| 💾 **Store-and-Forward Routing (Room v4)** | Persistent message queues stored in local SQLite database files. Messages targeting offline peers automatically flush over-the-air upon peer discovery. |
-| ⚡ **Ultra-Compact 1.6 MB APK** | Heavily optimized footprint achieved via 5-pass R8 bytecode minification, resource stripping, WebP compression, and ABI split execution. |
-| 📲 **Offline Self-Replication** | Extract running APK binary at runtime and stream `P2Chat.apk` over Nearby Connections to nearby devices without internet or Google Play access. |
-| 📎 **100 MB High-Speed File Transfers** | Send photos, PDFs, videos, and arbitrary documents using high-speed zero-copy stream `FILE` payloads. |
-| 📷 **Instant QR Code Invitations** | Generate 512x512 QR code bitmaps via ZXing for quick zero-click group joining, contact exchange, and app distribution. |
-| 🎨 **Glassmorphic Material 3 Interface** | Sleek, modern UI built with Jetpack Compose featuring smooth dark & light theme switching and micro-animations. |
+| **Zero-Internet P2P Mesh Network** | Multi-hop peer relay powered by Google Nearby Connections (`P2P_CLUSTER`). Messages dynamically hop across nearby devices to reach out-of-range recipients. |
+| **AES-256-GCM End-to-End Encryption** | Zero-trust payload security with 128-bit authentication tags and unique 12-byte IVs per packet. Group keys derived via `PBKDF2WithHmacSHA256`. |
+| **Store-and-Forward Routing (Room v4)** | Persistent message queues stored in local SQLite database files. Messages targeting offline peers automatically flush over-the-air upon peer discovery. |
+| **Ultra-Compact 1.6 MB APK** | Heavily optimized footprint achieved via 5-pass R8 bytecode minification, resource stripping, WebP compression, and ABI split execution. |
+| **Offline Self-Replication** | Extract running APK binary at runtime and stream `P2Chat.apk` over Nearby Connections to nearby devices without internet or Google Play access. |
+| **100 MB High-Speed File Transfers** | Send photos, PDFs, videos, and arbitrary documents using high-speed zero-copy stream `FILE` payloads. |
+| **Instant QR Code Invitations** | Generate 512x512 QR code bitmaps via ZXing for quick zero-click group joining, contact exchange, and app distribution. |
+| **Glassmorphic Material 3 Interface** | Sleek, modern UI built with Jetpack Compose featuring smooth dark & light theme switching and micro-animations. |
 
 ---
 
-## 🛠️ Architecture & Tech Stack
+## Architecture & Tech Stack
 
 P2Chat strictly adheres to **Clean Architecture** principles and the **MVVM (Model-View-ViewModel)** design pattern, split into well-defined software layers to maintain modularity, testability, and separation of concerns.
 
@@ -105,27 +105,27 @@ P2Chat strictly adheres to **Clean Architecture** principles and the **MVVM (Mod
 
 ```mermaid
 flowchart TD
-    subgraph UI_Layer["🎨 UI Layer (Jetpack Compose)"]
+    subgraph UI_Layer["UI Layer (Jetpack Compose)"]
         UI[Material3 Screens & Components]
         VM[ViewModels & UI State Management]
     end
 
-    subgraph Domain_Layer["🧠 Domain Layer"]
+    subgraph Domain_Layer["Domain Layer"]
         UC[Use Cases & Business Logic]
         RL[P2PRateLimiter - 15 msg/s limit]
     end
 
-    subgraph Data_Layer["💾 Data Layer (Local Persistence)"]
+    subgraph Data_Layer["Data Layer (Local Persistence)"]
         RoomDB[Room SQLite Database v4]
         Queue[Message Queueing Engine]
     end
 
-    subgraph Crypto_Layer["🔒 Cryptographic Engine"]
+    subgraph Crypto_Layer["Cryptographic Engine"]
         AES[AES-256-GCM Cipher]
         KDF[PBKDF2 Key Derivation]
     end
 
-    subgraph Radio_Layer["📡 P2P Mesh Layer (Google Nearby)"]
+    subgraph Radio_Layer["P2P Mesh Layer (Google Nearby)"]
         NC[Nearby Connections - P2P_CLUSTER]
         BT[Bluetooth LE / Classic / Wi-Fi Direct]
     end
@@ -156,7 +156,7 @@ flowchart TD
 
 ---
 
-## 🛡️ Security Architecture & Threat Model
+## Security Architecture & Threat Model
 
 P2Chat is engineered with a **zero-trust model**. Intermediate relaying nodes in the mesh network act solely as opaque packet forwarders and cannot inspect, tamper with, or forge message contents.
 
@@ -187,7 +187,7 @@ P2Chat is engineered with a **zero-trust model**. Intermediate relaying nodes in
 
 ---
 
-## 📡 Mesh Networking Protocol
+## Mesh Networking Protocol
 
 P2Chat leverages Google Nearby Connections under the `P2P_CLUSTER` network strategy, forming high-bandwidth, multi-directional peer clusters combining Bluetooth LE discovery with Wi-Fi Direct data transfers.
 
@@ -210,7 +210,7 @@ P2Chat leverages Google Nearby Connections under the `P2P_CLUSTER` network strat
 
 ---
 
-## ⚡ Footprint & Size Optimization
+## Footprint & Size Optimization
 
 P2Chat delivers full-featured offline mesh messaging in an exceptionally compact **1.6 MB APK**.
 
@@ -223,7 +223,7 @@ P2Chat delivers full-featured offline mesh messaging in an exceptionally compact
 
 ---
 
-## 📁 Codebase Directory Structure
+## Codebase Directory Structure
 
 ```
 p2pchat/
@@ -247,7 +247,7 @@ p2pchat/
 
 ---
 
-## 🚀 Building & Running
+## Building & Running
 
 ### Prerequisites
 
@@ -286,15 +286,15 @@ adb install -r app/build/outputs/apk/release/app-arm64-v8a-release.apk
 
 ---
 
-## 🌐 Web Companion & Demo
+## Web Companion & Demo
 
 Explore the official companion website to test the interactive feature showcase, view protocol details, and download pre-built APK releases:
 
-👉 **[https://AmritRai1234.github.io/P2Chat/](https://AmritRai1234.github.io/P2Chat/)**
+[https://AmritRai1234.github.io/P2Chat/](https://AmritRai1234.github.io/P2Chat/)
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcomed! Whether you are interested in refining the mesh routing algorithms, adding new cryptographic primitives, or enhancing the Compose UI:
 
@@ -306,11 +306,11 @@ Contributions are welcomed! Whether you are interested in refining the mesh rout
 
 ---
 
-## 📄 License
+## License
 
 P2Chat is licensed under the **GNU General Public License v3.0 (GPLv3)**.  
 See the [LICENSE](LICENSE) file for full licensing details.
 
 <p align="center">
-  <sub>Built with ❤️ for privacy, freedom, and decentralized offline communication.</sub>
+  <sub>Built for privacy, freedom, and decentralized offline communication.</sub>
 </p>
