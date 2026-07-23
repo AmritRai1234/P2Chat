@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="P2Chat - Offline P2P mesh network messenger for Android. AES-256-GCM E2EE encryption, zero internet, zero servers.">
+  <title>P2Chat | Offline P2P Mesh Messenger</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/webp" href="logo.webp">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="radial-bg"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="brand">
+      <img src="logo.webp" alt="P2Chat Logo">
+      <span>P2Chat</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#simulator">Mesh Physics</a></li>
+        <li><a href="#security">Security</a></li>
+      </ul>
+      <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle Theme" style="margin-left: 10px;">
+        <i data-lucide="sun" id="themeIcon" style="width: 18px; height: 18px;"></i>
+      </button>
+      <a href="#download" class="btn-solid" id="nav-download-btn">
+        <i data-lucide="download" style="width: 15px; height: 15px; margin-right: 6px;"></i> Download APK (1.6 MB)
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">
+        <i data-lucide="wifi" style="width: 14px; height: 14px;"></i>
+        <span>Bluetooth + Wi-Fi Direct Mesh</span>
+      </div>
+      <h1 class="hero-h1">
+        Off-Grid Chat.<br>
+        <span style="color: var(--orange-logo);">Zero Servers.</span>
+      </h1>
+      <p class="hero-p">
+        Connect directly with nearby smartphones. No cell service, internet, or cloud dependency required. Encrypted over the air with AES-256-GCM.
+      </p>
+      <div class="hero-actions">
+        <a href="#download" class="btn-solid" id="hero-download-btn">
+          <i data-lucide="download" style="width: 16px; height: 16px; margin-right: 6px;"></i> Download APK (1.6 MB)
+        </a>
+        <a href="#simulator" class="btn-outline" id="hero-sim-btn">
+          <i data-lucide="activity" style="width: 16px; height: 16px; margin-right: 6px;"></i> View Mesh Demo
+        </a>
+      </div>
+      <div class="hero-meta">
+        <div>
+          <div class="meta-num">1.6 MB</div>
+          <div class="meta-lbl">Micro APK Size</div>
+        </div>
+        <div>
+          <div class="meta-num">AES-256</div>
+          <div class="meta-lbl">GCM Encryption</div>
+        </div>
+        <div>
+          <div class="meta-num">0 KB</div>
+          <div class="meta-lbl">Data Consumption</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phone Mockup Display -->
+    <div class="phone-mockup-wrapper">
+      <div class="phone-mockup">
+        <div class="phone-header">
+          <span>13:37</span>
+          <span style="display: flex; align-items: center; gap: 4px;">
+            <i data-lucide="radio" style="width: 11px; height: 11px;"></i> Mesh Connected
+          </span>
+        </div>
+        <div class="phone-app-bar">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 26px; height: 26px; border-radius: 50%; background: var(--orange-logo); display: flex; align-items: center; justify-content: center; font-weight: 800; color: #000; font-size: 0.75rem;">D</div>
+            <div>
+              <div style="font-size: 0.82rem; font-weight: 700; color: #FFF;">Don Joe (Anonymous Peer)</div>
+              <div style="font-size: 0.62rem; color: #888;">● Connected via P2P</div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-chat-body">
+          <div class="bubble bubble-them">
+            Hey! Are cell towers down in your area?
+            <div class="bubble-meta">13:35</div>
+          </div>
+          <div class="bubble bubble-me">
+            Yeah! But P2Chat works 100% offline over Bluetooth & Wi-Fi Direct 📡
+            <div class="bubble-meta">13:36 · Delivered</div>
+          </div>
+          <div class="bubble bubble-them">
+            That's insane! Is it encrypted?
+            <div class="bubble-meta">13:36</div>
+          </div>
+          <div class="bubble bubble-me">
+            🔒 Fully encrypted with AES-256-GCM. Zero-trust security!
+            <div class="bubble-meta">13:37 · Delivered</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Bento Grid Features -->
+  <section class="bento-section" id="features">
+    <div class="bento-header">
+      <h2>Crafted for Reliability</h2>
+      <p style="color: var(--text-dim);">Engineered for emergencies, protests, festivals, and off-grid communications.</p>
+    </div>
+
+    <div class="bento-grid">
+      <!-- Wide Bento Card: Mesh Physics -->
+      <div class="bento-card wide" id="simulator">
+        <div class="bento-icon">
+          <i data-lucide="radio"></i>
+        </div>
+        <h3 class="bento-title">Serverless Mesh Relay Physics</h3>
+        <p class="bento-desc">Messages automatically hop across nearby smartphones to reach distant peers. Interactive mesh network grid below (click to add nodes):</p>
+        <div class="sim-container">
+          <canvas id="meshCanvas" style="width: 100%; height: 100%; border-radius: 16px;"></canvas>
+        </div>
+      </div>
+
+      <!-- Tall Bento Card: AES-256 Security -->
+      <div class="bento-card" id="security">
+        <div class="bento-icon">
+          <i data-lucide="shield-check"></i>
+        </div>
+        <h3 class="bento-title">AES-256-GCM E2EE</h3>
+        <p class="bento-desc">Military-grade Galois/Counter Mode authenticated encryption with PBKDF2 per-group derived keys and random 12-byte IVs. Message contents remain undecryptable over the air.</p>
+      </div>
+
+      <!-- Bento Card: SQLite Store and Forward -->
+      <div class="bento-card">
+        <div class="bento-icon">
+          <i data-lucide="database"></i>
+        </div>
+        <h3 class="bento-title">SQLite Store-and-Forward</h3>
+        <p class="bento-desc">Messages sent to offline peers automatically queue in Room SQLite DB and flush over the air upon reconnection.</p>
+      </div>
+
+      <!-- Bento Card: 1.6MB Micro Size -->
+      <div class="bento-card">
+        <div class="bento-icon">
+          <i data-lucide="zap"></i>
+        </div>
+        <h3 class="bento-title">1.6 MB Micro Binary</h3>
+        <p class="bento-desc">R8 multi-pass bytecode shrinking & WebP compression allow instant 1.5-second wireless transfers.</p>
+      </div>
+
+      <!-- Bento Card: P2P Self Sharing -->
+      <div class="bento-card">
+        <div class="bento-icon">
+          <i data-lucide="share-2"></i>
+        </div>
+        <h3 class="bento-title">Offline Self-Replication</h3>
+        <p class="bento-desc">Share P2Chat wirelessly directly from the running app over the air without Google Play or internet access.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section style="padding: 6rem 5%; text-align: center; background: var(--bg-subtle);" id="download">
+    <div style="max-width: 600px; margin: 0 auto;">
+      <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">Get P2Chat Today</h2>
+      <p style="color: var(--text-dim); margin-bottom: 2rem;">Download the 1.6 MB APK file directly or scan the QR code on any device running P2Chat.</p>
+      <a href="#" class="btn-solid" style="font-size: 1rem; padding: 0.85rem 2rem;">Download P2Chat APK (1.6 MB)</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>P2Chat · GNU General Public License v3.0 (GPLv3) · Serverless Offline P2P Mesh Architecture</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
